@@ -1,199 +1,183 @@
-🏺 AI-Driven Archaeological Site Mapping
-
+# 🏺 AI-Driven Archaeological Site Mapping  
 An AI platform for analyzing satellite and drone imagery to support archaeological research and conservation.
 
-🌍 Project Overview
+---
 
-The AI-Driven Archaeological Site Mapping system uses deep learning and geospatial analytics to:
+## 🌍 Project Overview
 
-🧱 Segment ancient ruins and vegetation
+The **AI-Driven Archaeological Site Mapping** system uses deep learning and geospatial analytics to:
 
-🎯 Detect and classify artifact structures
-
-🏜️ Predict terrain erosion zones
-
-📊 Visualize insights through an interactive dashboard
+- 🧱 Segment ancient ruins and vegetation  
+- 🎯 Detect and classify artifact structures  
+- 🏜️ Predict terrain erosion zones  
+- 📊 Visualize insights through an interactive dashboard  
 
 This platform integrates semantic segmentation, object detection, and terrain modeling to support archaeologists in field analysis and conservation planning.
 
-🎯 Project Outcomes
+---
 
-Understand preprocessing of satellite/drone imagery
+## 🎯 Project Outcomes
 
-Build U-Net / DeepLabV3+ models for segmentation
+- Understand preprocessing of satellite/drone imagery  
+- Build U-Net / DeepLabV3+ models for segmentation  
+- Implement YOLOv5 / Faster R-CNN for artifact detection  
+- Train XGBoost / Random Forest for erosion prediction  
+- Deploy results through a Streamlit/Dash dashboard  
 
-Implement YOLOv5 / Faster R-CNN for artifact detection
+---
 
-Train XGBoost / Random Forest for erosion prediction
+## 🗂️ Dataset Sources
 
-Deploy results through a Streamlit/Dash dashboard
+- **Google Earth Pro**  
+- **OpenAerialMap**  
+- **Custom annotated datasets** (QGIS / Labelbox)  
 
-🗂️ Dataset Sources
+---
 
-Google Earth Pro
+## 🧩 Project Modules
 
-OpenAerialMap
+1. Data Collection & Annotation  
+2. Preprocessing & Augmentation  
+3. Semantic Segmentation (Ruins & Vegetation)  
+4. Object Detection & Artifact Classification  
+5. Terrain Erosion Prediction  
+6. Model Evaluation & Tuning  
+7. Dashboard & Final Presentation  
 
-Custom annotated images (QGIS / Labelbox)
+---
 
-🧩 Project Modules
+## ⏳ Project Timeline
 
-Data Collection & Annotation
+### 📌 Milestone 1: Dataset Collection & Preparation (Weeks 1–2)
 
-Preprocessing & Augmentation
+**Week 1**  
+- Download and review satellite/drone images  
+- Define annotation schema (ruins, vegetation, artifacts)
 
-Semantic Segmentation (Ruins & Vegetation)
+**Week 2**  
+- Annotate using Labelbox/QGIS  
+- Normalize, resize, augment, and split the dataset  
 
-Object Detection & Artifact Classification
+---
 
-Terrain Erosion Prediction
+### 📌 Milestone 2: Segmentation & Detection Models (Weeks 3–4)
 
-Model Evaluation & Tuning
+**Week 3**  
+- Implement U-Net / DeepLabV3+ for semantic segmentation  
+- Validate with IoU & Dice Score  
 
-Dashboard & Final Presentation
+**Week 4**  
+- Train YOLOv5 / Faster R-CNN for artifact detection  
+- Evaluate using mAP, precision, recall  
 
-⏳ Project Timeline
-📌 Milestone 1: Dataset Collection & Preparation (Weeks 1–2)
+---
 
-Week 1
+### 📌 Milestone 3: Terrain Erosion Prediction (Weeks 5–6)
 
-Download satellite/drone images
+**Week 5**  
+- Collect terrain-related features (slope, NDVI, elevation, soil type)
 
-Define annotation schema (ruins, vegetation, artifacts)
+**Week 6**  
+- Train XGBoost / Random Forest  
+- Evaluate using RMSE & R² Score  
 
-Week 2
+---
 
-Annotate using Labelbox/QGIS
+### 📌 Milestone 4: Visualization & Reporting (Weeks 7–8)
 
-Normalize, resize, and split dataset
+**Week 7**  
+- Build a Streamlit/Dash dashboard  
+- Overlay segmentation, detection, and erosion layers on maps  
 
-📌 Milestone 2: Segmentation & Detection Models (Weeks 3–4)
+**Week 8**  
+- Final documentation and write-up  
+- Presentation and live project demo  
 
-Week 3
+---
 
-Implement U-Net / DeepLabV3+
+## 🔁 Workflow
 
-Validate with IoU & Dice Score
+1. Acquire + annotate imagery  
+2. Preprocess and split datasets  
+3. Train segmentation and detection models  
+4. Predict erosion zones  
+5. Visualize results on an interactive dashboard  
 
-Week 4
+---
 
-Train YOLOv5 / Faster R-CNN
+## 🛠️ Tech Stack
 
-Evaluate using mAP, precision, recall
+### Language  
+- Python 🐍  
 
-📌 Milestone 3: Terrain Erosion Prediction (Weeks 5–6)
+### Libraries  
+- Pandas, NumPy  
+- OpenCV, Rasterio  
+- Scikit-learn  
+- GeoPandas, Folium  
+- Matplotlib, Seaborn  
 
-Week 5
+### Deep Learning Frameworks  
+- TensorFlow / Keras  
+- PyTorch  
 
-Collect terrain features (slope, elevation, NDVI, etc.)
+### Models  
+- **Segmentation:** U-Net, DeepLabV3+  
+- **Detection:** YOLOv5, Faster R-CNN  
+- **Prediction:** XGBoost, Random Forest  
 
-Week 6
+### Dashboard  
+- Streamlit  
+- Dash  
 
-Train XGBoost / Random Forest
+---
 
-Evaluate using RMSE & R² Score
+## 🏗️ Architecture
 
-📌 Milestone 4: Visualization & Reporting (Weeks 7–8)
-
-Week 7
-
-Build a Streamlit/Dash dashboard
-
-Overlay segmentation, detection & erosion layers
-
-Week 8
-
-Final documentation
-
-Presentation & demo
-
-🔁 Workflow
-
-Acquire + annotate imagery
-
-Preprocess and split dataset
-
-Train segmentation and detection models
-
-Predict erosion zones
-
-Visualize results on an interactive dashboard
-
-🛠️ Tech Stack
-Language
-
-Python 🐍
-
-Libraries
-
-Pandas, NumPy
-
-OpenCV, Rasterio
-
-Scikit-learn
-
-GeoPandas, Folium
-
-Matplotlib, Seaborn
-
-Deep Learning Frameworks
-
-TensorFlow / PyTorch
-
-Models
-
-Segmentation: U-Net, DeepLabV3+
-
-Detection: YOLOv5, Faster R-CNN
-
-Prediction: XGBoost, Random Forest
-
-Dashboard
-
-Streamlit or Dash
-
-🏗️ Architecture
 [ Satellite/Drone Images ]
-            ↓
+↓
 [ Preprocessing & Augmentation ]
-            ↓
- ┌──────────────────────────────────────────────┐
- │ Segmentation (U-Net/DeepLabV3+)              │
- │ Object Detection (YOLOv5/Faster R-CNN)       │
- │ Erosion Prediction (XGBoost/Random Forest)   │
- └──────────────────────────────────────────────┘
-            ↓
+↓
+┌──────────────────────────────────────────────┐
+│ Segmentation (U-Net/DeepLabV3+) │
+│ Object Detection (YOLOv5/Faster R-CNN) │
+│ Erosion Prediction (XGBoost/Random Forest) │
+└──────────────────────────────────────────────┘
+↓
 [ Interactive Dashboard (Streamlit/Dash) ]
-            ↓
+↓
 [ Archaeological Insights & Map Visualizations ]
 
-📊 Evaluation Metrics
-Segmentation
 
-IoU
 
-Dice Score
+---
 
-Object Detection
+## 📊 Evaluation Metrics
 
-mAP
+### Segmentation  
+- IoU (Intersection over Union)  
+- Dice Score  
 
-Precision / Recall
+### Object Detection  
+- mAP  
+- Precision / Recall  
 
-Erosion Prediction
+### Erosion Prediction  
+- RMSE  
+- R² Score  
 
-RMSE
+---
 
-R² Score
+## 📦 Final Deliverables
 
-📦 Final Deliverables
+- Annotated dataset  
+- Model training notebooks  
+- Preprocessing scripts  
+- Trained weights (optional)  
+- Dashboard application  
+- Final report & presentation  
 
-Model training scripts
+---
 
-Annotated dataset
 
-Trained model weights (optional)
 
-Dashboard application
-
-Final documentation & presentation
