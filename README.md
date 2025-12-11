@@ -134,20 +134,25 @@ This platform integrates semantic segmentation, object detection, and terrain mo
 
 ## 🏗️ Architecture
 
-[ Satellite/Drone Images ]
-↓
-[ Preprocessing & Augmentation ]
-↓
-┌──────────────────────────────────────────────┐
-│ Segmentation (U-Net/DeepLabV3+) │
-│ Object Detection (YOLOv5/Faster R-CNN) │
-│ Erosion Prediction (XGBoost/Random Forest) │
-└──────────────────────────────────────────────┘
-↓
-[ Interactive Dashboard (Streamlit/Dash) ]
-↓
-[ Archaeological Insights & Map Visualizations ]
+flowchart TD
 
+A[Satellite / Drone Images] --> B[Data Preprocessing<br/>(Resizing, Normalization, Augmentation)]
+
+B --> C1[Semantic Segmentation Model<br/>(U-Net / DeepLabV3+)]
+B --> C2[Object Detection Model<br/>(YOLOv5 / Faster R-CNN)]
+B --> C3[Terrain Feature Extraction<br/>(Slope, NDVI, Elevation)]
+
+C3 --> D[Erosion Prediction Model<br/>(XGBoost / Random Forest)]
+
+C1 --> E[Segmentation Output<br/>(Ruins / Vegetation Masks)]
+C2 --> F[Artifact Detection Output<br/>(Bounding Boxes + Classes)]
+D --> G[Erosion Risk Map]
+
+E --> H[Interactive Dashboard<br/>(Streamlit / Dash)]
+F --> H
+G --> H
+
+H --> I[Archaeological Insights & Map Visualization]
 
 
 ---
