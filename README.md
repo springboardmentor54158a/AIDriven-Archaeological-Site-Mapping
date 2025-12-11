@@ -134,26 +134,28 @@ This platform integrates semantic segmentation, object detection, and terrain mo
 
 ## 🏗️ Architecture
 
-flowchart TD
+AI-Driven Archaeological Site Mapping – Architecture
 
-A[Satellite / Drone Images] --> B[Data Preprocessing<br/>(Resizing, Normalization, Augmentation)]
-
-B --> C1[Semantic Segmentation Model<br/>(U-Net / DeepLabV3+)]
-B --> C2[Object Detection Model<br/>(YOLOv5 / Faster R-CNN)]
-B --> C3[Terrain Feature Extraction<br/>(Slope, NDVI, Elevation)]
-
-C3 --> D[Erosion Prediction Model<br/>(XGBoost / Random Forest)]
-
-C1 --> E[Segmentation Output<br/>(Ruins / Vegetation Masks)]
-C2 --> F[Artifact Detection Output<br/>(Bounding Boxes + Classes)]
-D --> G[Erosion Risk Map]
-
-E --> H[Interactive Dashboard<br/>(Streamlit / Dash)]
-F --> H
-G --> H
-
-H --> I[Archaeological Insights & Map Visualization]
-
+1. Satellite/Drone Images
+        ↓
+2. Preprocessing & Augmentation
+        ↓
+3. Three Processing Pipelines:
+     a. Semantic Segmentation (U-Net / DeepLabV3+)
+           → Outputs: Masks for ruins & vegetation
+     b. Object Detection (YOLOv5 / Faster R-CNN)
+           → Outputs: Bounding boxes & artifact classes
+     c. Terrain Feature Extraction (slope, NDVI, elevation)
+           → Erosion Prediction Model (XGBoost / Random Forest)
+           → Erosion risk maps
+        ↓
+4. Dashboard (Streamlit / Dash)
+        ↓
+5. Final outputs:
+       - Ruin segmentation layers
+       - Artifact detection overlays
+       - Erosion zone predictions
+       - Interactive archaeological map
 
 ---
 
