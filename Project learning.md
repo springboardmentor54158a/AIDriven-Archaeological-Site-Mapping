@@ -266,6 +266,14 @@ Week 2 Day 5
   * Ruins
 
   * Vegetation
+## Day 2: U-Net Model Setup
+
+- Implemented **U-Net architecture** for semantic segmentation
+- Integrated a **pretrained encoder** to improve feature extraction:
+  - ResNet34
+  - ResNet50
+- Initialized encoder weights using **pretrained models** to achieve faster and more stable convergence during training
+
 
 
 
