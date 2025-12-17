@@ -134,5 +134,140 @@ I learned that my project involves **two completely separate computer vision tas
 
 # Week 2 day 1
 
- 
+###  **Annotation Tool Setup & Planning**
+
+* Selected a single annotation tool (**Labelbox / CVAT / Label Studio**) for uniformity
+
+* Reviewed dataset and defined annotation guidelines
+
+* Finalized annotation classes:
+
+  * **Ruins**
+
+  * **Vegetation**
+
+  * **Artifacts (for object detection)**
+
+* Planned export formats for segmentation and detection tasks
+
+# Week 2 Day 2
+
+### **Semantic Segmentation Annotation**
+
+* Performed **polygon-based semantic segmentation** for:
+
+  * Ruins
+
+  * Vegetation
+
+* Carefully annotated regions to ensure pixel-level accuracy
+
+* Exported segmentation masks in **PNG format**
+
+* Verified alignment between:
+
+  * Original images
+
+  * Corresponding masks
+
+# Week 2 Day 3
+
+### **Object Detection Annotation**
+
+* Annotated visible artifacts using **bounding boxes**
+
+* Ensured consistent labeling across images
+
+* Exported annotations in:
+
+  * **YOLO format**
+
+  * **COCO format**
+
+* Validated bounding boxes visually for correctness
+
+# 
+
+# Week 2 Day 4
+
+### **Dataset Preprocessing**
+
+* Resized all images to **512 × 512**
+
+* Normalized pixel intensity values
+
+* Organized dataset into:
+
+  * Training set
+
+  * Validation set
+
+  * Test set
+
+* Ensured correct pairing of:
+
+  * Images
+
+  * Segmentation masks
+
+  * Detection annotations
+
+
+Week 2 Day 5
+
+ **Terrain Analysis Preparation & Model Study**
+
+* Verified availability of **geolocation metadata** (where applicable)
+
+* Ensured imagery has consistent:
+
+  * Scale
+
+  * Orientation
+
+* Prepared dataset for future extraction of:
+
+  * Slope maps
+
+  * NDVI
+
+  * Elevation / DEM
+
+* Studied a reference Kaggle notebook:
+
+  * **U-Net for Building Segmentation (PyTorch)**
+
+  * [https://www.kaggle.com/code/balraj98/unet-for-building-segmentation-pytorch](https://www.kaggle.com/code/balraj98/unet-for-building-segmentation-pytorch)
+
+* Understood segmentation pipeline and training workflow
+
+# 
+
+# Week 3 Day 1
+
+## **Semantic Segmentation (U-Net)**
+
+##  **Dataset Organization & Inputs Preparation**
+
+* Organized dataset into required folder structure:
+
+  * `images/`
+
+  * `masks/`
+
+* Verified correct mapping between:
+
+  * Input images
+
+  * Corresponding segmentation masks
+
+* Checked class labels for:
+
+  * Ruins
+
+  * Vegetation
+
+
+
+
 
