@@ -247,32 +247,73 @@ Week 2 Day 5
 
 ## **Semantic Segmentation (U-Net)**
 
-##  **Dataset Organization & Inputs Preparation**
+# Week 3: Semantic Segmentation (U-Net / DeepLabV3+)
 
-* Organized dataset into required folder structure:
+## Week 3 Day 1: Problem Understanding & Dataset Analysis
+- Studied the concept of **semantic segmentation** and its importance in archaeological site mapping.
+- Understood the difference between **object detection** and **semantic segmentation**.
+- Analyzed the dataset structure containing:
+  - `images/` – satellite/drone images
+  - `masks/` – pixel-wise annotated segmentation masks
+- Verified that each image has a corresponding mask with proper alignment.
+- Identified target classes such as **ruins** and **vegetation**.
 
-  * `images/`
+**Learning Outcome:**
+- Gained understanding of pixel-level labeling and its role in identifying archaeological features.
 
-  * `masks/`
+---
 
-* Verified correct mapping between:
+## Week 3 Day 2: Study of Segmentation Models (U-Net & DeepLabV3+)
+- Studied the architecture of **U-Net**, focusing on encoder–decoder design and skip connections.
+- Explored **DeepLabV3+** and its use of atrous convolutions for multi-scale context.
+- Compared both models in terms of complexity and performance.
+- Selected **U-Net** for initial implementation due to its efficiency and suitability for small datasets.
 
-  * Input images
+**Learning Outcome:**
+- Learned how different segmentation architectures handle spatial information.
 
-  * Corresponding segmentation masks
+---
 
-* Checked class labels for:
+## Week Day 3: Model Implementation & Transfer Learning
+- Implemented a **U-Net-based semantic segmentation model**.
+- Integrated a **pretrained encoder (ResNet34 / ResNet50)** to leverage transfer learning.
+- Fine-tuned the model for **ruins and vegetation classes**.
+- Configured training parameters such as:
+  - Loss functions (Binary Cross Entropy / Dice Loss)
+  - Optimizer (Adam)
+  - Input image resizing and normalization
 
-  * Ruins
+**Learning Outcome:**
+- Understood the benefits of transfer learning in improving segmentation performance.
 
-  * Vegetation
-## Day 2: U-Net Model Setup
+---
 
-- Implemented **U-Net architecture** for semantic segmentation
-- Integrated a **pretrained encoder** to improve feature extraction:
-  - ResNet34
-  - ResNet50
-- Initialized encoder weights using **pretrained models** to achieve faster and more stable convergence during training
+## Week 3 Day 4: Model Training & Validation
+- Trained the segmentation model using the prepared dataset.
+- Monitored training and validation loss across epochs.
+- Performed qualitative analysis by visualizing predicted masks against ground truth.
+- Tuned hyperparameters like learning rate and batch size to improve results.
+
+**Learning Outcome:**
+- Learned how to evaluate training behavior and improve model stability.
+
+---
+
+## Week3 Day 5: Model Evaluation & Performance Analysis
+- Evaluated the trained model using standard segmentation metrics:
+  - **Intersection over Union (IoU)**
+  - **Dice Score**
+- Analyzed segmentation results for ruins and vegetation regions.
+- Identified strengths and limitations of the model predictions.
+- Documented evaluation results for reporting and presentation.
+
+**Learning Outcome:**
+- Gained practical understanding of segmentation evaluation metrics and their significance.
+
+---
+
+
+- 
 
 
 
