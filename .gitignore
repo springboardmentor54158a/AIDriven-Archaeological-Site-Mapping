@@ -1,0 +1,15 @@
+# virtual environment
+unet_env/
+
+# python cache
+__pycache__/
+*.pyc
+
+# model weights
+*.pth
+
+# notebooks
+.ipynb_checkpoints/
+
+# inference outputs
+results/predictions/
