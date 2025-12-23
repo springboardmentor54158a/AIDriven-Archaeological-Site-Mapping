@@ -1,0 +1,10 @@
+Dataset(main)/
+*.tif
+*.png
+*.jpg
+*.jpeg
+*.h5
+*.pt
+*.pth
+__pycache__/
+.ipynb_checkpoints/
