@@ -308,6 +308,53 @@ Week 2 Day 5
 **Learning Outcome:**
 - Gained practical understanding of segmentation evaluation metrics and their significance.
 
+
+## 📅 Day 3: YOLO Training, Evaluation, and Result Analysis
+
+### 🎯 Objectives
+- To train a YOLOv5 model for archaeological artifact detection  
+- To evaluate the trained model using standard object detection metrics  
+- To visualize detection results on validation images  
+
+---
+
+### 📚 Learning Outcomes
+- Learned the complete YOLOv5 training workflow  
+- Understood the role of loss functions and evaluation metrics in object detection  
+- Gained experience in analyzing detection outputs  
+
+---
+
+### 🧠 Concepts Covered
+- YOLOv5 training pipeline  
+- Loss components:
+  - Bounding box loss  
+  - Objectness loss  
+  - Classification loss  
+- Evaluation metric:
+  - Mean Average Precision (mAP@0.5)  
+
+---
+
+### 🛠 Practical Work
+1. Trained the YOLOv5 model using the prepared archaeological dataset.  
+2. Configured training parameters such as:
+   - Image size: 640 × 640  
+   - Batch size: 2  
+   - Number of epochs: 10–20  
+3. Monitored training progress by observing loss values and mAP scores.  
+4. Evaluated the trained model on validation images.  
+5. Performed inference to visualize bounding boxes and confidence scores for detected archaeological structures.
+
+---
+
+### 📊 Results
+- The YOLOv5 model successfully detected archaeological structures from satellite imagery.  
+- Bounding boxes were accurately localized on validation images.  
+- The mAP score indicated the feasibility of object detection using a limited annotated dataset.
+
+
+
 ---
 
 
