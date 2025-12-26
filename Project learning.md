@@ -349,13 +349,7 @@ Week 2 Day 5
   - **1 → Wall**
 
 - Created YOLO dataset directory structure:
-yolo_data/
-├── images/
-│ ├── train/
-│ └── val/
-├── labels/
-│ ├── train/
-│ └── val/
+https://drive.google.com/drive/folders/1gBeCxVyhRdQPSs7sygmdZ89h_oD23nxH?usp=sharing
 
 
 - Identified that existing `.png` files were segmentation masks and that YOLO requires bounding box annotations in `.txt` format.
