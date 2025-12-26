@@ -308,57 +308,116 @@ Week 2 Day 5
 **Learning Outcome:**
 - Gained practical understanding of segmentation evaluation metrics and their significance.
 
+---
+# 📘 Week 4: YOLO Checkpoint
 
-## 📅 Day 3: YOLO Training, Evaluation, and Result Analysis
+---
+
+## 📅 Week 4 – Day 1  
+### Understanding Object Detection & Dataset Preparation
 
 ### 🎯 Objectives
-- To train a YOLOv5 model for archaeological artifact detection  
-- To evaluate the trained model using standard object detection metrics  
-- To visualize detection results on validation images  
+- To understand the fundamentals of object detection  
+- To study the YOLOv5 architecture and workflow  
+- To prepare a YOLO-compatible dataset structure  
+- To distinguish between semantic segmentation and object detection  
 
 ---
 
 ### 📚 Learning Outcomes
-- Learned the complete YOLOv5 training workflow  
-- Understood the role of loss functions and evaluation metrics in object detection  
-- Gained experience in analyzing detection outputs  
+- Gained an understanding of how YOLO performs real-time object detection  
+- Learned the difference between pixel-level segmentation and bounding-box-based detection  
+- Understood the YOLO annotation format and dataset requirements  
 
 ---
 
 ### 🧠 Concepts Covered
-- YOLOv5 training pipeline  
-- Loss components:
-  - Bounding box loss  
-  - Objectness loss  
-  - Classification loss  
-- Evaluation metric:
-  - Mean Average Precision (mAP@0.5)  
+- Object Detection vs Semantic Segmentation  
+- YOLOv5 pipeline  
+- Bounding box parameters:
+  - `x_center`
+  - `y_center`
+  - `width`
+  - `height`  
+  *(all values normalized)*  
 
 ---
 
 ### 🛠 Practical Work
-1. Trained the YOLOv5 model using the prepared archaeological dataset.  
-2. Configured training parameters such as:
-   - Image size: 640 × 640  
-   - Batch size: 2  
-   - Number of epochs: 10–20  
-3. Monitored training progress by observing loss values and mAP scores.  
-4. Evaluated the trained model on validation images.  
-5. Performed inference to visualize bounding boxes and confidence scores for detected archaeological structures.
+- Defined object detection classes:
+  - **0 → Structure**
+  - **1 → Wall**
+
+- Created YOLO dataset directory structure:
+yolo_data/
+├── images/
+│ ├── train/
+│ └── val/
+├── labels/
+│ ├── train/
+│ └── val/
+
+
+- Identified that existing `.png` files were segmentation masks and that YOLO requires bounding box annotations in `.txt` format.
 
 ---
 
-### 📊 Results
-- The YOLOv5 model successfully detected archaeological structures from satellite imagery.  
-- Bounding boxes were accurately localized on validation images.  
-- The mAP score indicated the feasibility of object detection using a limited annotated dataset.
+## 📅 Week 4 – Day 2  
+### Annotation & YOLO Configuration
 
-
+### 🎯 Objectives
+- To create YOLO-compatible annotation files  
+- To prepare configuration files for YOLO training  
+- To set up the YOLOv5 environment in Google Colab  
 
 ---
 
+### 📚 Learning Outcomes
+- Learned the manual bounding box annotation process  
+- Understood how to write YOLO label files  
+- Learned how to create and validate a dataset YAML configuration file  
 
-- 
+---
+
+### 🧠 Concepts Covered
+- YOLO annotation format:
+- Importance of normalized bounding box coordinates  
+- Train–Validation dataset split strategy  
+
+---
+
+## 📅 Week 4 – Day 3  
+### YOLO Training, Evaluation, and Results
+
+### 🎯 Objectives
+- To train the YOLOv5 model on annotated satellite imagery  
+- To evaluate model performance using standard metrics  
+- To visualize object detection results  
+
+---
+
+### 📚 Learning Outcomes
+- Gained experience in training a YOLOv5 object detection model  
+- Understood how to interpret loss values and evaluation metrics  
+- Learned to analyze detection results visually  
+
+---
+
+### Week 4 Day 4
+- Trained the YOLOv5 model using the prepared dataset with the following parameters:
+- **Image size:** 640 × 640  
+- **Batch size:** 2  
+- **Epochs:** 10–20  
+
+- Monitored training progress through loss values and **mAP** scores  
+- Evaluated the trained model on validation images  
+- Performed inference to visualize bounding boxes and confidence scores on detected archaeological structures  
+
+---
+
+## 🏁 Week 4 Summary
+> Week 4 focused on implementing YOLOv5 for archaeological artifact detection, covering dataset preparation, annotation, training, evaluation, and result visualization.
+
 
 
 
