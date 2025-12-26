@@ -186,9 +186,7 @@ I learned that my project involves **two completely separate computer vision tas
 
 * Validated bounding boxes visually for correctness
 
-# 
-
-# Week 2 Day 4
+## Week 2 Day 4
 
 ### **Dataset Preprocessing**
 
