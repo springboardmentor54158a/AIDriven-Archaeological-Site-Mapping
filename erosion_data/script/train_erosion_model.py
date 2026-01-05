@@ -35,6 +35,6 @@ print("Accuracy :", round(accuracy, 4))
 print("RMSE     :", round(rmse, 4))
 print("R2 Score :", round(r2, 4))
 
-# Save trained model
+
 joblib.dump(model, "erosion_rf_model.pkl")
 print("\nRandom Forest model saved as erosion_rf_model.pkl")
