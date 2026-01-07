@@ -9,6 +9,13 @@
 **• Software Bug Detection and Correction Model — Project**  
  Developed an AI-based model capable of identifying software bugs from code and suggesting corrections.
 
+## Mile stone 1: Completed
+
+## Mile stone2: train images-120 test images-30
+
+    iou score- 0.5260  
+    Dice score-0.5133
+
 # Mile Stone 1 Dataset Collection and Preparation
 
 ## Week 1 Day 1
@@ -186,7 +193,9 @@ I learned that my project involves **two completely separate computer vision tas
 
 * Validated bounding boxes visually for correctness
 
-## Week 2 Day 4
+# 
+
+# Week 2 Day 4
 
 ### **Dataset Preprocessing**
 
@@ -245,176 +254,587 @@ Week 2 Day 5
 
 ## **Semantic Segmentation (U-Net)**
 
-# Week 3: Semantic Segmentation (U-Net / DeepLabV3+)
+##  **Dataset Organization & Inputs Preparation**
 
-## Week 3 Day 1: Problem Understanding & Dataset Analysis
-- Studied the concept of **semantic segmentation** and its importance in archaeological site mapping.
-- Understood the difference between **object detection** and **semantic segmentation**.
-- Analyzed the dataset structure containing:
-  - `images/` – satellite/drone images
-  - `masks/` – pixel-wise annotated segmentation masks
-- Verified that each image has a corresponding mask with proper alignment.
-- Identified target classes such as **ruins** and **vegetation**.
+* Organized dataset into required folder structure:
 
-**Learning Outcome:**
-- Gained understanding of pixel-level labeling and its role in identifying archaeological features.
+  * `images/`
 
----
+  * `masks/`
 
-## Week 3 Day 2: Study of Segmentation Models (U-Net & DeepLabV3+)
-- Studied the architecture of **U-Net**, focusing on encoder–decoder design and skip connections.
-- Explored **DeepLabV3+** and its use of atrous convolutions for multi-scale context.
-- Compared both models in terms of complexity and performance.
-- Selected **U-Net** for initial implementation due to its efficiency and suitability for small datasets.
+* Verified correct mapping between:
 
-**Learning Outcome:**
-- Learned how different segmentation architectures handle spatial information.
+  * Input images
 
----
+  * Corresponding segmentation masks
 
-## Week Day 3: Model Implementation & Transfer Learning
-- Implemented a **U-Net-based semantic segmentation model**.
-- Integrated a **pretrained encoder (ResNet34 / ResNet50)** to leverage transfer learning.
-- Fine-tuned the model for **ruins and vegetation classes**.
-- Configured training parameters such as:
-  - Loss functions (Binary Cross Entropy / Dice Loss)
-  - Optimizer (Adam)
-  - Input image resizing and normalization
+* Checked class labels for:
 
-**Learning Outcome:**
-- Understood the benefits of transfer learning in improving segmentation performance.
+  * Ruins
 
----
+  * Vegetation 
 
-## Week 3 Day 4: Model Training & Validation
-- Trained the segmentation model using the prepared dataset.
-- Monitored training and validation loss across epochs.
-- Performed qualitative analysis by visualizing predicted masks against ground truth.
-- Tuned hyperparameters like learning rate and batch size to improve results.
+  # 
 
-**Learning Outcome:**
-- Learned how to evaluate training behavior and improve model stability.
+# Week 3 day 2
 
----
+# **U-Net Model Setup**
 
-## Week3 Day 5: Model Evaluation & Performance Analysis
-- Evaluated the trained model using standard segmentation metrics:
-  - **Intersection over Union (IoU)**
-  - **Dice Score**
-- Analyzed segmentation results for ruins and vegetation regions.
-- Identified strengths and limitations of the model predictions.
-- Documented evaluation results for reporting and presentation.
+* Implemented **U-Net architecture** for semantic segmentation
 
-**Learning Outcome:**
-- Gained practical understanding of segmentation evaluation metrics and their significance.
+* Integrated a **pretrained encoder**:
 
----
-# 📘 Week 4: YOLO Checkpoint
+  * ResNet34 / ResNet50
 
----
+* Initialized encoder weights using pretrained models for better convergence
 
-## 📅 Week 4 – Day 1  
+# Week 3 day 3
+
+###  **Work Done:**
+
+* Studied the concept of **semantic segmentation** and its difference from object detection.
+
+* Understood the role of **pixel-wise classification** in archaeological site mapping.
+
+* Analyzed the dataset structure consisting of:
+
+  * `images/` → satellite images
+
+  * `masks/` → corresponding ground-truth segmentation masks
+
+* Verified image–mask alignment and ensured consistent file naming.
+
+### **🔹 Learning Outcome:**
+
+* Gained clarity on how segmentation masks act as labels.
+
+# Week 3 day 4
+
+* Studied **U-Net architecture**, including:
+
+  * Encoder–decoder structure
+
+  * Skip connections
+
+* Explored **DeepLabV3+** and its advantages in handling multi-scale context.
+
+* Compared both models and selected **U-Net** for initial experimentation due to simplicity and efficiency.
+
+### **🔹 Learning Outcome:**
+
+* Understood why U-Net is widely used for satellite image segmentation.
+
+* Learned the importance of encoder backbones in deep learning models.
+
+# Week 3 day 5
+
+### **Work Done:**
+
+* Trained the segmentation model on the training dataset.
+
+* Monitored training and validation loss.
+
+* Visualized predicted segmentation masks against ground truth.
+
+* Adjusted hyperparameters such as learning rate and batch size for stable training.
+
+### **🔹 Learning Outcome:**
+
+* Learned how to detect underfitting and overfitting.
+
+* Gained experience in interpreting segmentation outputs visually.
+
+# Week 4 Yolo check Point 
+
+## Week 4 day 1
+
 ### Understanding Object Detection & Dataset Preparation
 
-### 🎯 Objectives
-- To understand the fundamentals of object detection  
-- To study the YOLOv5 architecture and workflow  
-- To prepare a YOLO-compatible dataset structure  
-- To distinguish between semantic segmentation and object detection  
+### Objectives
+
+* To understand the fundamentals of object detection
+
+* To study the YOLOv5 architecture and workflow
+
+* To prepare a YOLO-compatible dataset structure
+
+* To distinguish between semantic segmentation and object detection
+
+### Learning Outcomes
+
+* Gained an understanding of how YOLO performs real-time object detection
+
+* Learned the difference between pixel-level segmentation and bounding-box-based detection
+
+* Understood the YOLO annotation format and dataset requirements
+
+### Concepts Covered
+
+* Object Detection vs Semantic Segmentation
+
+* YOLOv5 pipeline
+
+* Bounding Box parameters:
+
+  * `x_center`
+
+  * `y_center`
+
+  * `width`
+
+  * `height` (all normalized)
+
+Defined object detection classes:
+
+ `0 → Structure`  
+`1 → Wall`
+
+Created YOLO dataset directory structure:
+
+ `yolo_data/`  
+`├── images/`  
+`│   ├── train/`  
+`│   └── val/`  
+`├── labels/`  
+`│   ├── train/`  
+`│   └── val/`
+
+Identified that existing .png masks are segmentation labels  
+ and YOLO requires bounding box annotations (.txt).
+
+**Week 4 day 2 : Annotation & YOLO Configuration**
+
+### **Objectives**
+
+* Create YOLO-compatible annotation files
+
+* Prepare configuration files for training
+
+* Set up YOLOv5 environment in Google Colab
+
+### **Learning Outcomes**
+
+* Manual bounding box annotation process
+
+* Writing YOLO label files
+
+* Creating and validating a dataset YAML file
+
+### **Concepts Covered**
+
+YOLO annotation format:
+
+ `class_id x_center y_center width height`
+
+* Importance of normalized coordinates
+
+* Train/Validation split strategy
+
+# Week 4 Day 3
+
+##  YOLO Training, Evaluation, and Results
+
+### **Objectives**
+
+* To train the YOLOv5 model on annotated satellite imagery
+
+* To evaluate model performance using standard metrics
+
+* To visualize detection results
+
+### **Learning Outcomes**
+
+* Gained experience in training a YOLOv5 object detection model
+
+* Understood how to interpret loss values and evaluation metrics
+
+* Learned to analyze detection results visually
+
+Trained the YOLOv5 model using the prepared dataset with the following parameters:
+
+* Image size: 640 × 640
+
+* Batch size: 2
+
+* Epochs: 10–20
+
+Monitored training progress through loss values and mAP scores.
+
+Evaluated the trained model on validation images.
+
+Performed inference to visualize bounding boxes and confidence scores on detected archaeological structures.  
+ [https://drive.google.com/drive/folders/1gBeCxVyhRdQPSs7sygmdZ89h\_oD23nxH?usp=sharing](https://drive.google.com/drive/folders/1gBeCxVyhRdQPSs7sygmdZ89h_oD23nxH?usp=sharing)
+
+# 
+
+# Week 4 Day 4
+
+### **Objective**
+
+The main objective of Week 4 was to implement an object detection model for identifying and classifying archaeological artifacts from images, and to evaluate its performance using standard evaluation metrics such as **mAP**, **precision**, and **recall**.
 
 ---
 
-### 📚 Learning Outcomes
-- Gained an understanding of how YOLO performs real-time object detection  
-- Learned the difference between pixel-level segmentation and bounding-box-based detection  
-- Understood the YOLO annotation format and dataset requirements  
+### **Work Done**
+
+#### **1\. Model Selection**
+
+For artifact detection and classification, I implemented **YOLOv5**, a state-of-the-art real-time object detection model.  
+ YOLOv5 was selected due to:
+
+* High detection speed
+
+* Good accuracy on small and medium objects
+
+* Easy integration with custom datasets
+
+* Built-in support for evaluation metrics like mAP
+
+*(Alternatively, Faster R-CNN was studied conceptually for comparison, but YOLOv5 was used for implementation.)*
 
 ---
 
-### 🧠 Concepts Covered
-- Object Detection vs Semantic Segmentation  
-- YOLOv5 pipeline  
-- Bounding box parameters:
-  - `x_center`
-  - `y_center`
-  - `width`
-  - `height`  
-  *(all values normalized)*  
+#### **2\. Dataset Preparation**
+
+Images were annotated in **YOLO format**, where each object is represented by:
+
+ `class_id x_center y_center width height`
+
+*   
+* The dataset was split into:
+
+  * **Training set**
+
+  * **Validation set**
+
+* A custom `data.yaml` file was created specifying:
+
+  * Number of classes
+
+  * Class names
+
+  * Paths to training and validation images
 
 ---
 
-### 🛠 Practical Work
-- Defined object detection classes:
-  - **0 → Structure**
-  - **1 → Wall**
+#### **3\. Model Training**
 
-- Created YOLO dataset directory structure:
-https://drive.google.com/drive/folders/1gBeCxVyhRdQPSs7sygmdZ89h_oD23nxH?usp=sharing
+* YOLOv5 was trained on the custom archaeological artifact dataset.
 
+* Training involved:
 
-- Identified that existing `.png` files were segmentation masks and that YOLO requires bounding box annotations in `.txt` format.
+  * Loading pretrained weights for faster convergence
 
----
+  * Fine-tuning on artifact images
 
-## 📅 Week 4 – Day 2  
-### Annotation & YOLO Configuration
+  * Monitoring training loss and validation loss
 
-### 🎯 Objectives
-- To create YOLO-compatible annotation files  
-- To prepare configuration files for YOLO training  
-- To set up the YOLOv5 environment in Google Colab  
+* The model learned to detect and classify different artifact categories present in the dataset.
 
 ---
 
-### 📚 Learning Outcomes
-- Learned the manual bounding box annotation process  
-- Understood how to write YOLO label files  
-- Learned how to create and validate a dataset YAML configuration file  
+#### **4\. Model Evaluation**
+
+After training, the model was evaluated using standard object detection metrics:
+
+##### **a) Mean Average Precision (mAP)**
+
+* **mAP@0.5** was used to measure overall detection accuracy.
+
+* This metric evaluates how well the predicted bounding boxes overlap with ground truth boxes.
+
+##### **b) Precision**
+
+* Precision measures how many detected artifacts were actually correct.
+
+* High precision indicates fewer false positives.
+
+##### **c) Recall**
+
+* Recall measures how many actual artifacts were successfully detected.
+
+* High recall indicates fewer missed detections.
+
+##### **d) Class-wise Evaluation**
+
+* Precision and recall were analyzed **for each artifact class separately**.
+
+* This helped identify which artifact categories were detected well and which required more data or tuning.
 
 ---
 
-### 🧠 Concepts Covered
-- YOLO annotation format:
-- Importance of normalized bounding box coordinates  
-- Train–Validation dataset split strategy  
+#### **5\. Results and Observations**
+
+* The model achieved satisfactory mAP on the validation dataset.
+
+* Certain artifact classes showed higher precision and recall due to:
+
+  * Better visual features
+
+  * More training samples
+
+* Some classes required further data balancing and annotation refinement.
+
+# Milestone 3: Terrain Erosion Prediction (Weeks 5–6) 
+
+# Week 5 Day 1
+
+## **Week 5 – Day 1: Theoretical Study of Terrain Erosion**
+
+### **Objective**
+
+The objective of Day 1 was to study the basic concept of terrain erosion and understand its relevance in archaeological site mapping and terrain analysis.
 
 ---
 
-## 📅 Week 4 – Day 3  
-### YOLO Training, Evaluation, and Results
+### **Work Done**
 
-### 🎯 Objectives
-- To train the YOLOv5 model on annotated satellite imagery  
-- To evaluate model performance using standard metrics  
-- To visualize object detection results  
+* Studied the fundamentals of **terrain erosion** and its causes.
+
+* Understood how natural factors such as:
+
+  * Rainfall
+
+  * Wind
+
+  * Gravity
+
+  * Surface runoff  
+     contribute to soil erosion.
+
+* Learned the difference between **erosion-prone areas** and **stable terrain**.
+
+* Studied the impact of erosion on:
+
+  * Surface artifacts
+
+  * Archaeological site visibility
+
+  * Long-term site preservation.
+
+* Gained theoretical knowledge about why erosion prediction is important before applying machine learning models.
 
 ---
 
-### 📚 Learning Outcomes
-- Gained experience in training a YOLOv5 object detection model  
-- Understood how to interpret loss values and evaluation metrics  
-- Learned to analyze detection results visually  
+# Week 5 Day 2
+
+### **Objective**
+
+The objective of Day 2 was to study and understand the terrain features that are commonly used to analyze and predict erosion-prone and stable areas.
 
 ---
 
-### Week 4 Day 4
-- Trained the YOLOv5 model using the prepared dataset with the following parameters:
-- **Image size:** 640 × 640  
-- **Batch size:** 2  
-- **Epochs:** 10–20  
+### **Work Done**
 
-- Monitored training progress through loss values and **mAP** scores  
-- Evaluated the trained model on validation images  
-- Performed inference to visualize bounding boxes and confidence scores on detected archaeological structures  
+* Studied the role of **terrain features** in erosion analysis.
+
+* Gained theoretical understanding of the following important features:
+
+#### **1\. Slope**
+
+* Learned how slope affects soil stability.
+
+* Steeper slopes are generally more prone to erosion due to increased gravitational force and surface runoff.
+
+#### **2\. Elevation**
+
+* Studied how elevation influences water flow and erosion patterns.
+
+* Higher elevation areas may experience faster runoff, increasing erosion risk.
+
+#### **3\. Vegetation Cover**
+
+* Learned the importance of vegetation in holding soil together.
+
+* Areas with dense vegetation are generally more stable and less prone to erosion.
+
+#### **4\. Surface Runoff**
+
+* Studied how water movement across terrain contributes to erosion.
+
+* Increased runoff leads to higher soil displacement.
+
+* Understood that combining multiple terrain features gives better erosion prediction than using a single feature.
 
 ---
 
-## 🏁 Week 4 Summary
-> Week 4 focused on implementing YOLOv5 for archaeological artifact detection, covering dataset preparation, annotation, training, evaluation, and result visualization.
+### **Outcome**
 
+By the end of Day 2, a clear theoretical understanding of key terrain features influencing erosion was developed, forming the foundation for future data preparation and model implementation.
 
+# 
 
+# Week 5 day 3
 
+### **Objective**
 
+The objective of Day 3 was to study the theoretical approach for preparing labeled datasets to distinguish between erosion-prone and stable terrain areas.
 
+---
+
+### **Work Done**
+
+* Studied the concept of **data labeling** in the context of terrain erosion prediction.
+
+* Learned how terrain regions can be categorized into:
+
+  * **Erosion-prone areas**
+
+  * **Stable areas**
+
+* Understood that labeling is based on terrain characteristics such as:
+
+  * Slope steepness
+
+  * Vegetation density
+
+  * Elevation variation
+
+  * Historical erosion patterns (theoretical study)
+
+* Studied how labeled data is essential for training supervised machine learning models.
+
+* Learned the importance of **accurate and consistent labeling** to avoid biased or incorrect predictions.
+
+* Understood that expert knowledge or reference maps are often used for labeling erosion-prone regions.
+
+---
+
+### **Outcome**
+
+By the end of Day 3, a clear theoretical understanding of how labeled datasets are prepared for erosion prediction was developed, which will support practical implementation in later stages of the project.
+
+# Week 5 Day 4
+
+### **Objective**
+
+The objective of Day 4 was to study, at a theoretical level, how terrain features are extracted from geospatial and remote sensing data for erosion prediction.
+
+---
+
+### **Work Done**
+
+* Studied the concept of **feature extraction** in terrain analysis.
+
+* Learned how terrain features can be derived from:
+
+  * Digital Elevation Models (DEM)
+
+  * Satellite imagery
+
+* Theoretically studied extraction of the following features:
+
+  * **Slope and aspect** from elevation data
+
+  * **Elevation gradients** for understanding terrain variation
+
+  * **Vegetation indices** (such as NDVI) from satellite images
+
+* Understood the role of feature extraction in converting raw terrain data into machine learning–ready inputs.
+
+---
+
+### **Outcome**
+
+By the end of Day 4, a theoretical understanding of terrain feature extraction methods used for erosion prediction was developed.
+
+# Week 5 Day 5
+
+### **Objective**
+
+The objective of Day 5 was to study different approaches used for predicting terrain erosion using computational and machine learning techniques.
+
+---
+
+### **Work Done**
+
+* Studied traditional and modern approaches for erosion prediction, including:
+
+  * Rule-based and threshold-based methods
+
+  * Machine learning–based classification approaches
+
+* Understood how extracted terrain features are used as inputs to prediction models.
+
+* Studied the concept of **binary classification** for erosion prediction:
+
+  * Erosion-prone areas
+
+  * Stable areas
+
+* Learned about evaluation criteria (theoretical overview) for erosion prediction models such as accuracy, precision, and recall.
+
+* Understood the importance of validating erosion prediction results for real-world terrain analysis.
+
+---
+
+### **Outcome**
+
+By the end of Day 5, a clear theoretical understanding of erosion prediction methodologies and their role in AI-driven terrain analysis was achieved.
+
+# **Week 6: Theoretical Study of Machine Learning for Erosion Prediction**
+
+---
+
+## **Week 6 – Day 1: Study of Machine Learning in Terrain Erosion Prediction**
+
+### **Objective**
+
+The objective of Day 1 was to study the role of machine learning in predicting terrain erosion.
+
+### **Work Done**
+
+* Studied how machine learning can be applied to environmental and terrain analysis.
+
+* Understood the difference between:
+
+  * Classification-based erosion prediction
+
+  * Regression-based erosion prediction
+
+* Learned why erosion prediction is treated as a regression problem in many cases.
+
+### **Outcome**
+
+Developed a basic theoretical understanding of applying machine learning techniques to erosion prediction.
+
+## **Week 6 – Day 2: Study of Random Forest Model**
+
+### **Objective**
+
+The objective of Day 2 was to study the Random Forest algorithm and its suitability for terrain erosion prediction.
+
+### **Work Done**
+
+* Studied the working principle of **Random Forest**.
+
+* Learned how multiple decision trees are combined to improve prediction accuracy.
+
+* Understood why Random Forest performs well with non-linear terrain data.
+
+* Studied advantages such as reduced overfitting and robustness to noise.
+
+### **Outcome**
+
+Gained theoretical understanding of Random Forest as a potential model for erosion prediction.
+
+## **Week 6 – Day 3: Study of XGBoost Model**
+
+### **Objective**
+
+The objective of Day 3 was to study the XGBoost algorithm for terrain erosion prediction.
+
+### **Work Done**
+
+* Studied the concept of **gradient boosting**.
+
+* Learned how XGBoost improves model performance by correcting previous errors.
+
+* Understood why XGBoost is effective for structured terrain feature data.
+
+* Studied theoretical advantages such as high accuracy and scalability.
+
+### **Outcome**
+
+Developed theoretical knowledge of XGBoost for erosion prediction.
 
