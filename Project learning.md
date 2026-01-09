@@ -838,3 +838,35 @@ The objective of Day 3 was to study the XGBoost algorithm for terrain erosion pr
 
 Developed theoretical knowledge of XGBoost for erosion prediction.
 
+
+## Week 6 – Day 4: Study of Evaluation Metrics for Erosion Prediction
+
+### Objective
+To study evaluation metrics used to assess the performance of terrain erosion prediction models.
+
+### Work Done
+- Studied RMSE (Root Mean Square Error) as a metric to measure prediction error.
+- Understood how lower RMSE indicates better model performance.
+- Studied R² Score (Coefficient of Determination) to evaluate how well the model explains variance in data.
+- Learned the theoretical importance of using multiple metrics for model evaluation.
+
+### Outcome
+Developed a clear theoretical understanding of evaluation metrics used for erosion prediction models.
+
+---
+
+## Week 6 – Day 5: Study of Map Integration for Erosion Prediction
+
+### Objective
+To study how erosion prediction results can be integrated with map-based systems.
+
+### Work Done
+- Studied theoretical concepts of integrating machine learning predictions with GIS data.
+- Learned how erosion prediction results can be visualized on maps using:
+  - Heatmaps
+  - Risk-level overlays
+- Understood the importance of map integration for terrain monitoring and archaeological site conservation.
+
+### Outcome
+Developed theoretical understanding of map-based visualization and integration of erosion prediction results.
+
