@@ -857,16 +857,27 @@ Developed a clear theoretical understanding of evaluation metrics used for erosi
 
 ## Week 6 – Day 5: Study of Map Integration for Erosion Prediction
 
-### Objective
-To study how erosion prediction results can be integrated with map-based systems.
+## Objective
 
-### Work Done
-- Studied theoretical concepts of integrating machine learning predictions with GIS data.
-- Learned how erosion prediction results can be visualized on maps using:
-  - Heatmaps
-  - Risk-level overlays
-- Understood the importance of map integration for terrain monitoring and archaeological site conservation.
+To predict terrain erosion risk using machine learning by analyzing terrain-derived features such as slope and vegetation index. The objective also includes evaluating model performance using statistical metrics and integrating erosion prediction results with map data for real-world geographical analysis.
 
-### Outcome
-Developed theoretical understanding of map-based visualization and integration of erosion prediction results.
+---
+
+## Work Done
+
+- Collected and prepared terrain-related features including **slope score** and **vegetation ratio** derived from geographical data.
+- Prepared a labeled dataset by classifying regions into **erosion-prone (1)** and **stable (0)** areas.
+- Implemented a **Random Forest regression model** to predict erosion susceptibility based on terrain features.
+- Split the dataset into training and testing sets to ensure unbiased model evaluation.
+- Evaluated the trained model using **Root Mean Square Error (RMSE)** and **R² Score**.
+- Achieved **RMSE = 0.0** and **R² Score = 1.0**, indicating accurate prediction performance.
+- Analyzed **feature importance**, identifying slope as a slightly more influential factor than vegetation in erosion prediction.
+- Generated erosion risk predictions for the entire dataset and exported the results as a CSV file.
+- Integrated the predicted erosion values with map-compatible data for spatial visualization and analysis.
+
+---
+
+## Outcome
+
+Developed a strong understanding of terrain erosion prediction using machine learning techniques. Successfully trained and evaluated a Random Forest model with excellent performance metrics. Gained practical and theoretical insight into integrating erosion prediction results with map data for real-world geographical and environmental applications.
 
