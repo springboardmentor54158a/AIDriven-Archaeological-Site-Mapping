@@ -1,0 +1,16 @@
+# YOLOv5 Dataset Configuration
+# Paths are relative to this config file
+
+path: C:\Users\UDAY\Downloads\ruins_vegetation_segmentation\yolo_dataset  # dataset root dir
+train: train/images  # train images (relative to 'path')
+val: val/images      # val images (relative to 'path')
+
+# Classes
+names:
+  0: vegetation
+  1: ruins
+
+# Number of classes
+nc: 2
+
+

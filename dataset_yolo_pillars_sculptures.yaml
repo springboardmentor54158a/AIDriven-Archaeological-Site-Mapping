@@ -1,0 +1,16 @@
+# YOLOv5 Dataset Configuration for Pillars and Sculptures Detection
+# Paths are relative to this config file
+
+path: yolo_dataset  # dataset root dir (use relative path)
+train: train/images  # train images (relative to 'path')
+val: val/images      # val images (relative to 'path')
+
+# Classes - Updated to include pillars and sculptures
+names:
+  0: vegetation
+  1: ruins
+  2: pillars
+  3: sculptures
+
+# Number of classes
+nc: 4

@@ -1,0 +1,69 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Model files (large)
+*.pth
+*.pt
+*.pkl
+*.h5
+*.ckpt
+
+# Data directories (large)
+runs/
+yolo_dataset/
+images/
+masks/
+labels/
+pixel_labels/
+erosion_maps/
+erosion_results/
+uday/
+
+# Temporary files
+temp_*.jpg
+temp_*.png
+*.tmp
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/
+
+# Cache
+*.cache
+.cache/
+
+# Large files
+*.zip
+*.tar.gz
+
+# Keep only essential model weights (comment out if you want to exclude all)
+# !yolov5s.pt  # Keep pretrained weights
+
+# Keep dataset configs
+!dataset_yolo.yaml
+!dataset_yolo_pillars_sculptures.yaml
+
+# Keep requirements
+!requirements*.txt

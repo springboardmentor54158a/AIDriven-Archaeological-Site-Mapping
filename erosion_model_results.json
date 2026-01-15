@@ -1,0 +1,16 @@
+{
+  "XGBoost Regression": {
+    "RMSE": 0.005710211199752751,
+    "R\u00b2": 0.9984521411914631
+  },
+  "Random Forest Regression": {
+    "RMSE": 0.031057242365789946,
+    "R\u00b2": 0.9542118831494647
+  },
+  "XGBoost Classification": {
+    "Accuracy": 0.9166666666666666
+  },
+  "Random Forest Classification": {
+    "Accuracy": 1.0
+  }
+}

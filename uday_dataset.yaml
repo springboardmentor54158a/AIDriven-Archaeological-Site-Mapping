@@ -1,0 +1,15 @@
+# Dataset config for uday images
+# Paths are relative to this file's workspace root where possible
+
+path: C:\Users\UDAY\Downloads\ruins_vegetation_segmentation
+train: uday/uday
+val: uday/uday
+
+names:
+  0: vegetation
+  1: ruins
+
+  2: background
+
+# Number of classes
+nc: 3
