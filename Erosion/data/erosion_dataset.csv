@@ -1,0 +1,15 @@
+﻿Location_ID,Latitude,Longitude,Slope,Elevation (m),Vegetation,Terrain_Type,Erosion_Label
+T01,34.2268,77.5619,32,3500,Low,Rugged,1
+T02,27.0264,71.114,4,180,Low,Plain,0
+T03,36.0544,-112.1401,30,2100,Low,Rugged,1
+T04,9.145,40.4897,18,1600,Medium,Hilly,1
+T05,36.5323,-116.9325,12,900,Low,Hilly,1
+T06,43.8554,-102.3397,25,1350,Low,Rugged,1
+T07,38.6431,34.8307,15,1200,Medium,Hilly,1
+T08,-24.5892,-69.0646,6,450,Low,Plain,0
+T09,36.0606,109.4897,20,1100,Medium,Hilly,1
+T10,14.2417,40.3,22,2100,Low,Rugged,1
+T11,30.0668,79.0193,28,2600,Medium,Rugged,1
+T12,32.246,78.017,35,4200,Low,Rugged,1
+T13,37.593,-112.1871,24,2400,Low,Rugged,1
+T14,-24.728,15.293,5,320,Low,Plain,0
