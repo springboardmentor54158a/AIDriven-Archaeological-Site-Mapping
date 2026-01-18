@@ -6,6 +6,9 @@ import numpy as np
 import pathlib
 import cv2
 import matplotlib.pyplot as plt
+import joblib
+import sys
+import pandas as pd
 
 # Try importing segmentation_models_pytorch
 try:
@@ -13,6 +16,15 @@ try:
 except ImportError:
     st.error("segmentation_models_pytorch is not installed. Please run: pip install segmentation-models-pytorch")
     st.stop()
+
+# -----------------------------
+# NumPy 2.0 Compatibility Patch
+# -----------------------------
+# Fix for "No module named 'numpy._core'" crashing the app
+if "numpy._core" not in sys.modules and hasattr(np, "core"):
+    sys.modules["numpy._core"] = np.core
+if "numpy._core.multiarray" not in sys.modules and hasattr(np, "core") and hasattr(np.core, "multiarray"):
+    sys.modules["numpy._core.multiarray"] = np.core.multiarray
 
 # Fix for loading models trained on Linux (PosixPath) on Windows
 pathlib.PosixPath = pathlib.WindowsPath
@@ -37,12 +49,9 @@ import torch.nn.functional as F
 # -----------------------------
 # Streamlit config
 # -----------------------------
-st.set_page_config(page_title="AI-Driven Site Mapping", layout="wide")
-st.title("AI-Driven Site Mapping")
-st.write(
-    "Detect historical artifacts (coin, jewelry, pottery, sculpture, seal, tablet, weapon) "
-    "using a YOLOv5 PyTorch model."
-)
+st.set_page_config(page_title="AI Driven Archaeological Site Mapping ", layout="wide")
+st.title("AI Driven Archaeological Site Mapping ")
+
 
 # -----------------------------
 # PATHS (EDIT ONLY IF NEEDED)
@@ -50,6 +59,7 @@ st.write(
 YOLOV5_REPO_PATH = r"C:\Users\ALSHIFANA\Downloads\final models\yolov5"
 WEIGHTS_PATH = r"C:\Users\ALSHIFANA\Downloads\final models\models\best.pt"
 UNET_MODEL_PATH = r"C:\Users\ALSHIFANA\Downloads\final models\models\best_unet_week3_fixed.pth"
+EROSION_MODEL_PATH = r"C:\Users\ALSHIFANA\Downloads\final models\models\trained_regression_model.pkl"
 
 # -----------------------------
 # Validate paths
@@ -102,6 +112,16 @@ def load_unet_model():
     except Exception as e:
         raise RuntimeError(f"Failed to load U-Net model: {e}")
 
+@cache_resource
+def load_erosion_model():
+    if not os.path.exists(EROSION_MODEL_PATH):
+        return None
+    try:
+        return joblib.load(EROSION_MODEL_PATH)
+    except Exception as e:
+        st.error(f"Error loading erosion model: {e}")
+        return None
+
 def visualize_prediction(original_image, predicted_mask):
     fig = plt.figure(figsize=(12, 4))
 
@@ -153,6 +173,10 @@ tab1, tab2, tab3 = st.tabs(["Artifact Detection (YOLOv5)", "Site Mapping (U-Net)
 
 with tab1:
     st.header("Artifact Detection")
+    st.write(
+    "Detect historical artifacts (coin, jewelry, pottery, sculpture, seal, tablet, weapon) "
+    "using a YOLOv5 PyTorch model."
+)
     input_method = st.radio("Select Input Method", ["Upload Image", "Camera", "Live Video"], key="yolo_input")
 
     uploaded_file = None
@@ -272,14 +296,6 @@ with tab3:
         )
 
     with col2:
-        # Rainfall (number input)
-        rainfall = st.number_input(
-            "Annual Rainfall (mm)", 
-            min_value=0.0, 
-            value=1200.0,
-            step=50.0
-        )
-        
         # Elevation (number input)
         elevation = st.number_input(
             "Elevation (meters)", 
@@ -294,18 +310,33 @@ with tab3:
     if st.button("Predict Risk"):
         
         st.subheader("📊 Prediction Result")
-        
-        # --- HEURISTIC PREDICTION LOGIC ---
-        # Logic: Risk increases with Slope & Rainfall, decreases with NDVI
-        norm_slope = slope / 90.0
-        norm_rainfall = min(rainfall, 3000) / 3000.0
-        norm_ndvi = (ndvi + 1) / 2  # Shift -1..1 to 0..1
-        
-        risk_score = (0.5 * norm_slope) + (0.3 * norm_rainfall) - (0.4 * norm_ndvi)
-        
-        if risk_score < 0.0:
-            st.success("🟢 LOW RISK\nThe combination of gentle slope and sufficient vegetation suggests the soil is stable.")
-        elif risk_score < 0.2:
-            st.warning("🟡 MEDIUM RISK\nThere is a moderate potential for soil loss. Monitoring is recommended.")
-        else:
-            st.error("🔴 HIGH RISK\nCritical conditions detected. Steep slope and high rainfall indicate severe erosion risk.")
+
+        with st.spinner("Loading model and calculating risk..."):
+            model = load_erosion_model()
+            
+            if model is None:
+                st.error("Could not load the model. Please check the file path or Python environment compatibility.")
+            else:
+                try:
+                    # Prepare input vector as DataFrame matching training columns: ['DEM', 'NDVI', 'slope']
+                    input_features = pd.DataFrame({
+                        'DEM': [elevation],
+                        'NDVI': [ndvi],
+                        'slope': [slope]
+                    })
+                    
+                    # Make prediction
+                    prediction = model.predict(input_features)
+                    risk_score = prediction[0]
+                    
+                    st.metric("Predicted Risk Score", f"{risk_score:.4f}")
+                    
+                    # Interpretation of the regression score
+                    if risk_score < 0.3:
+                        st.success("🟢 LOW RISK\nThe model predicts a low probability of soil erosion.")
+                    elif risk_score < 0.7:
+                        st.warning("🟡 MEDIUM RISK\nModerate erosion risk detected. Monitoring recommended.")
+                    else:
+                        st.error("🔴 HIGH RISK\nHigh erosion risk detected. Preventive measures advised.")
+                except Exception as e:
+                    st.error(f"Prediction failed: {e}")
