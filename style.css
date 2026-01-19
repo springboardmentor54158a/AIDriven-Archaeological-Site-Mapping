@@ -1,0 +1,77 @@
+/* APP BACKGROUND */
+.stApp {
+    background: linear-gradient(120deg, #ecfeff, #f0fdf4);
+}
+
+/* HEADER */
+.header {
+    background: linear-gradient(90deg, #0f766e, #22c55e);
+    padding: 22px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+}
+.header h1 {
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
+}
+.header p {
+    color: #eafffb;
+    font-size: 14px;
+}
+
+/* SIDEBAR */
+section[data-testid="stSidebar"] {
+    background: #020617;
+}
+
+/* SIDEBAR TITLE */
+.sidebar-title {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* SIDEBAR BUTTONS */
+.stButton button {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 10px;
+    border-radius: 14px;
+    font-weight: 700;
+    background: #f8fafc;
+    color: #020617;
+    border: none;
+}
+.stButton button:hover {
+    background: #e2e8f0;
+    color: #020617;
+}
+
+/* CARD */
+.card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0px 6px 20px rgba(0,0,0,0.08);
+}
+
+/* METRIC */
+.metric {
+    padding: 16px;
+    border-radius: 16px;
+    text-align: center;
+    font-weight: 700;
+    color: white;
+}
+.green { background: linear-gradient(135deg, #22c55e, #15803d); }
+.blue { background: linear-gradient(135deg, #3b82f6, #1e40af); }
+.orange { background: linear-gradient(135deg, #f59e0b, #b45309); }
+.purple { background: linear-gradient(135deg, #a855f7, #6b21a8); }
+.red { background: linear-gradient(135deg, #ef4444, #991b1b); }
+
+/* HEADINGS */
+h2 { font-size: 22px !important; }
+h3 { font-size: 18px !important; }
