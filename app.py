@@ -596,14 +596,41 @@ def display_class_percentages(predicted_mask, num_classes=3):
     st.markdown("#### Class Distribution Analysis")
     cols = st.columns(num_classes)
     
+    # Data for visualization
+    labels = []
+    sizes = []
+    colors = ['#B0BEC5', '#8D6E63', '#66BB6A'] # Muted Earth tones (Grey, Brown, Green)
+
     for cls in range(num_classes):
         count = np.sum(predicted_mask == cls)
         percentage = (count / total_pixels) * 100
         label = class_names.get(cls, f"Class {cls}")
         
+        labels.append(label)
+        sizes.append(percentage)
+        
         with cols[cls]:
             st.container()
             st.metric(label=label, value=f"{percentage:.2f}%")
+
+    # --- Dashboard Plots ---
+    st.markdown("---")
+    st.subheader("📊 Visual Analytics")
+    col_p1, col_p2 = st.columns(2)
+    
+    with col_p1:
+        fig, ax = plt.subplots(figsize=(4, 4))
+        ax.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors, startangle=90)
+        ax.set_title("Area Composition")
+        st.pyplot(fig)
+        
+    with col_p2:
+        fig, ax = plt.subplots(figsize=(5, 4))
+        ax.bar(labels, sizes, color=colors)
+        ax.set_ylim(0, 100)
+        ax.set_ylabel("Percentage")
+        ax.set_title("Distribution")
+        st.pyplot(fig)
 
 # -----------------------------
 # Load Models
@@ -696,6 +723,26 @@ with tab1:
             df = results.pandas().xyxy[0]
             if not df.empty:
                 st.success(f"Detected {len(df)} artifacts!")
+                
+                # --- Dashboard ---
+                st.markdown("### 📊 Detection Analytics")
+                col_d1, col_d2 = st.columns(2)
+                
+                with col_d1:
+                    fig, ax = plt.subplots(figsize=(6, 4))
+                    counts = df['name'].value_counts()
+                    ax.bar(counts.index, counts.values, color='#8B4513')
+                    ax.set_title("Artifact Counts")
+                    st.pyplot(fig)
+                    
+                with col_d2:
+                    fig, ax = plt.subplots(figsize=(6, 4))
+                    ax.hist(df['confidence'], bins=10, range=(0,1), color='#A0522D', edgecolor='white')
+                    ax.set_title("Confidence Distribution")
+                    ax.set_xlabel("Confidence Score")
+                    st.pyplot(fig)
+                # -----------------
+
                 with st.expander("View Detailed Data"):
                     # Removed use_container_width=True for compatibility
                     st.dataframe(df)
@@ -837,4 +884,4 @@ with tab3:
 
 # Footer
 st.markdown("---")
-st.caption("AI Driven Archaeological Site Mapping © 2024 | Powered by YOLOv5, U-Net & Streamlit")
+st.caption("AI Driven Archaeological Site Mapping © 2024")
